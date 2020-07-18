@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Library\RowGenerator\AlignCenterRowGenerator;
+use App\Library\RowsGenerator\AlignCenterRowsGenerator;
 use App\Library\RowsRenderers\HtmlRowsRenderer;
 use App\Library\Shapes\ShapeFactory;
 use Fox\Controller\Controller;
@@ -37,7 +37,7 @@ class GeneratorController extends Controller
     {
         $shape = ShapeFactory::create(Request::get("type"));
         $shape->setHeight(Request::get("height"));
-        $rowGenerator = new AlignCenterRowGenerator($shape);
+        $rowGenerator = new AlignCenterRowsGenerator($shape);
         $rows = $rowGenerator->getRows();
         $shapeRenderer = new HtmlRowsRenderer();
         $this->render("/christmas/render", [

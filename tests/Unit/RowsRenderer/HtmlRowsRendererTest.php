@@ -2,7 +2,7 @@
 
 namespace Unit\RowsRenderer;
 
-use App\Library\RowGenerator\AlignCenterRowGenerator;
+use App\Library\RowsGenerator\AlignCenterRowsGenerator;
 use App\Library\RowsRenderers\HtmlRowsRenderer;
 use App\Library\Shapes\Star;
 use PHPUnit\Framework\TestCase;
@@ -24,7 +24,7 @@ class HtmlRowsRendererTest extends TestCase
     {
         $star = new Star();
         $star->setHeight(5);
-        $rowsGenerator = new AlignCenterRowGenerator($star);
+        $rowsGenerator = new AlignCenterRowsGenerator($star);
         $rows = $rowsGenerator->getRows();
         $htmlRowsRenderer = new HtmlRowsRenderer();
         $html = "<div style='font-family: Courier, \"Courier New\", \"Lucida Console\", Monaco,serif;'>&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;</div><div style='font-family: Courier, \"Courier New\", \"Lucida Console\", Monaco,serif;'>&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;</div><div style='font-family: Courier, \"Courier New\", \"Lucida Console\", Monaco,serif;'>+XXXXX+</div><div style='font-family: Courier, \"Courier New\", \"Lucida Console\", Monaco,serif;'>&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;</div><div style='font-family: Courier, \"Courier New\", \"Lucida Console\", Monaco,serif;'>&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;</div>";

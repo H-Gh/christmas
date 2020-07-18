@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Library\RowGenerator\AlignCenterRowGenerator;
+use App\Library\RowsGenerator\AlignCenterRowsGenerator;
 use App\Library\RowsRenderers\ConsoleRowsRenderer;
 use App\Library\Shapes\ShapeFactory;
 use Fox\Console\Console;
@@ -32,7 +32,7 @@ class ShapeGenerator extends Console
             $shape = ShapeFactory::create($this->argument("shapeName"));
             $height = $this->getHeight();
             $shape->setHeight($height);
-            $shapeGenerator = new AlignCenterRowGenerator($shape);
+            $shapeGenerator = new AlignCenterRowsGenerator($shape);
             $generatedShape = $shapeGenerator->getRows();
             $renderer = new ConsoleRowsRenderer();
             echo $renderer->render($generatedShape);

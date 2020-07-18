@@ -2,7 +2,7 @@
 
 namespace Unit\RowsRenderer;
 
-use App\Library\RowGenerator\AlignCenterRowGenerator;
+use App\Library\RowsGenerator\AlignCenterRowsGenerator;
 use App\Library\RowsRenderers\ConsoleRowsRenderer;
 use App\Library\Shapes\Star;
 use PHPUnit\Framework\TestCase;
@@ -24,7 +24,7 @@ class ConsoleRowsRendererTest extends TestCase
     {
         $star = new Star();
         $star->setHeight(5);
-        $rowsGenerator = new AlignCenterRowGenerator($star);
+        $rowsGenerator = new AlignCenterRowsGenerator($star);
         $rows = $rowsGenerator->getRows();
         $consoleRowsRenderer = new ConsoleRowsRenderer();
         $html = "   +   

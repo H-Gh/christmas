@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Library\RowGenerator;
+namespace App\Library\RowsGenerator;
 
 use App\Library\Shapes\Shape;
 use Fox\Collection\Collection;
@@ -13,7 +13,7 @@ use Fox\Collection\CollectionInterface;
  * @category Row Generators
  * @author   Hamed Ghasempour <hamedghasempour@gmail.com>
  */
-abstract class RowGenerator
+abstract class RowsGenerator
 {
     /**
      * The collection to hold the rows

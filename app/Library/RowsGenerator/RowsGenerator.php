@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Library\RowGenerator;
+namespace App\Library\RowsGenerator;
 
 use App\Library\Shapes\Shape;
 use Fox\Collection\Collection;

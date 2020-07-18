@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Library\RowGenerator;
+namespace App\Library\RowsGenerator;
 
 /**
  * The row generator that generate the single line per row

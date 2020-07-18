@@ -20,7 +20,7 @@ use Fox\Helpers\Url;
                         <option value="5">Small (5 rows)</option>
                         <option value="7">Medium (7 rows)</option>
                         <option value="11">Large (11 rows)</option>
-                        <option value="19">Extra Large (15 rows)</option>
+                        <option value="15">Extra Large (15 rows)</option>
                     </select>
                 </div>
 

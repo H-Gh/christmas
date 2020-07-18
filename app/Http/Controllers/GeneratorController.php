@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Library\ShapeGenerator\AlignCenterRowGenerator;
+use App\Library\RowGenerator\AlignCenterRowGenerator;
 use App\Library\RowsRenderers\HtmlRowsRenderer;
 use App\Library\Shapes\ShapeFactory;
 use Fox\Controller\Controller;

@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar {
+    font-family: "Merry Christmas Flake Regular", serif;
+    background-color: #E01A4F;
+    border-bottom: 5px solid #0C090D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.christmas-font {
+    font-family: "Merry Christmas Flake Regular", serif;
+}
+
+.top-bar .text {
+    font-size: 70px;
+    margin-top: 10px;
+}
+
+.top-bar .icon {
+    font-size: 100px;
+    margin: 0 20px;
+}
+
+.contents {
+    padding: 50px;
+}
+
+.contents .type-selection {
+    margin-bottom: 20px;;
+}
+
+.contents .type-selection .type {
+    text-align: center;
+}
+
+.contents .type-selection .type .icon {
+    font-family: "Merry Christmas Flake Regular", serif;
+    font-size: 100px;
+}
+
+.contents .type-selection .type .title {
+    font-size: 30px;
+    margin: 0 0 20px;
+}
+
+/* The container */
+.radio-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-container input:checked ~ .card {
+    color: #53B3CB;
+    border: 1px solid #53B3CB;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 83, 179, 0.2);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 83, 179, 0.2);
+    box-shadow: 0 0 10px 0 rgba(0, 83, 179, 0.2);
+}
+
+.shape-render-box {
+    text-align: center;
+}

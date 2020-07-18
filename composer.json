@@ -1,0 +1,26 @@
+{
+    "name": "hgh/fox",
+    "description": "The fox",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hamed Ghasempour",
+            "email": "hamedghasempour@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "hgh/fox-framework": "^1.0",
+        "vlucas/phpdotenv": "^4.1",
+        "ext-pdo": "*",
+        "ext-openssl": "*",
+        "ext-mcrypt": "*",
+        "ext-json": "*"
+    },
+    "autoload":{
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}

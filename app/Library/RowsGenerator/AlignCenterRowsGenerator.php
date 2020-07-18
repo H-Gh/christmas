@@ -9,7 +9,7 @@ namespace App\Library\RowsGenerator;
  * @category Row Generators
  * @author   Hamed Ghasempour <hamedghasempour@gmail.com>
  */
-class AlignCenterRowGenerator extends RowGenerator
+class AlignCenterRowsGenerator extends RowsGenerator
 {
     /**
      * This method will process the bag and build the rows based on the biggest row size
@@ -64,7 +64,7 @@ class AlignCenterRowGenerator extends RowGenerator
      *
      * @return int
      */
-    private function getNumberOfEmptyCells(array $characters)
+    private function getNumberOfEmptyCells(array $characters): int
     {
         return ($this->mostSize - count($characters)) / 2;
     }
@@ -76,7 +76,7 @@ class AlignCenterRowGenerator extends RowGenerator
      *
      * @return array
      */
-    private function getSpaceArray(int $size)
+    private function getSpaceArray(int $size): array
     {
         return array_fill(0, $size, " ");
     }

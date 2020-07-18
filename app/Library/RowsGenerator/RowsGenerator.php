@@ -13,7 +13,7 @@ use Fox\Collection\CollectionInterface;
  * @category Row Generators
  * @author   Hamed Ghasempour <hamedghasempour@gmail.com>
  */
-abstract class RowGenerator
+abstract class RowsGenerator
 {
     /**
      * The collection to hold the rows

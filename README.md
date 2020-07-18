@@ -4,6 +4,9 @@
 The sample project to generate the shapes.    
     
 # Table of contents
+- [Installation](#installation)
+  - [Step 1](#step-1)
+  - [Step 2](#step-2)
 - [How to generate](#how-to-generate)
   - [Generate in web pages](#generate-in-web-pages)
   - [Generate in console](#generate-in-console)
@@ -16,8 +19,29 @@ The sample project to generate the shapes.
          - [AlignCenterShapeGenerator](#aligncentershapegenerator)
          - [DoubledAlignCenterShapeGenerator](#doubledaligncentershapegenerator)
       - [The RowRenderer](#the-rowrenderer)
-      - [Conclution](#conclution)
+      - [Conclusion](#conclution)
 - [UML diagram](#uml-diagram)
+
+# Installation
+### Step 1:
+Create a `.env` file and put these data into it:
+```
+DATABASE=mysql
+MYSQL_HOST=localhost
+MYSQL_USERNAME=root
+MYSQL_PASSWORD=
+MYSQL_PORT=3306
+MYSQL_DATABASE=fox
+APP_DEBUG=true
+```
+For more information please refer to: [Environment variables](https://github.com/H-Gh/fox-framework#environment-variables)
+
+> This project will not use the database. But for running the application they must be defined.
+
+### Step 2:
+Install the composer:
+``` composer install ```
+
 # How to generate
 In two ways you can generate the shapes. First generating via web pages and second using the console.     
     
@@ -79,7 +103,7 @@ Now, The only job that the shape is doing is holding the data. Holds the `height
 You can define your own shapes as many as you want.
   
 ### The ShapeGenerator  
-Ok, we have the pattern of the rows, but not the rows themself. The duty of the `ShapeGenerator` is creating the rows of a shape. we can generate those patterns in many ways! First, let's start with the normal way for the `Star` shape.  
+Ok, we have the visible character of the rows, but not the entire row with visible and invisible characters. The duty of the `ShapeGenerator` is creating the rows that contains visible and invisible (spaces) characters. We can generate those patterns in many ways! First, let's start with the normal way for the `Star` shape.  
 #### AlignCenterShapeGenerator  
 The `Star` shape must be aligned center.  So the `AlignCenterShapeGenerator` will update the pattern and add the spaces to the rows to make sure that the `character(s)` of that rows surrounded by the spaces to be in the center of the row.  
 Imagine a 5 row `Star` shape. So the biggest row size is `7` (number of columns). The first row has just one `character` which is `+`. The `AlignCenterShapeGenerator` will add `3` spaces before `+` and after it to make sure the size of the first row is `7` and the `+` is in the middle of the characters.  
@@ -115,14 +139,14 @@ If the `ShapeGenerator` exists inside the `Shape` you have to open the shape and
 Ok, now we generated the shape. It's time to render it everywhere we want! On the web page or in a console. So we need a new concept. `ShapeRenderer` is our new concept. The `ShapreRenderer` is abstract, and some other classes will extend it. 
 At this moment we have `HtmlRowsRenderer` and `ConsoleRowsRenderer` as concrete classes of `RowsRenderer`. What they do, it's not our concern. We just expect them to convert rows to some printable formats.
 
-### Conclution  
+### Conclusion  
 We have the `Shape` and the `ShapeGenerator`. Both of them are abstracts and have some `concreate` classes. Let's draw the class diagram.
   
-![Fox](public/images/UML Class.png)
+![Uml diagram](public/images/uml-diagram.png)
 
 Ok as we can see, both the `Shape` and `ShapeGenerator` as abstract classes have two concrete classes and the `ShapeGenerator` has a `Shape` object. Super! It is a `Bridge Design Pattern`. It reduces the number of classes that we might have by bypassing the `Cartesian product`. Learn more about it [here](https://en.wikipedia.org/wiki/Cartesian_product).
 
 As a final step, now we have the generated rows, we will send rows to `RowRenderer` based on the environment, and it will convert the rows to a printable format. We can send the rows to `HtmlRowsRenderer` to render as an `HTML` structure or inject it to `ConsoleRowsRenderer` to render it as console style. You can define your own `RowsRenderer` too.
 
 ## UML diagram
-![Fox](public/images/Full UML Class.png)
+![Full UML diagram](public/images/full-uml-diagram.png)

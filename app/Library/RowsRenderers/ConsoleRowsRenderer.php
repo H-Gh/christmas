@@ -25,9 +25,9 @@ class ConsoleRowsRenderer implements RowsRendererInterface
         $outputString = "";
         foreach ($rows as $characters) {
             foreach ($characters as $character) {
-                echo $character;
+                $outputString .= $character;
             }
-            echo PHP_EOL;
+            $outputString .= PHP_EOL;
         }
         return $outputString;
     }

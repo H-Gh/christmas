@@ -15,6 +15,13 @@ use Fox\Collection\CollectionInterface;
 abstract class Shape
 {
     /**
+     * The heights that shapes can be
+     *
+     * @var array
+     */
+    protected $availableHeights = [5, 7, 11, 15];
+
+    /**
      * The height of the shape
      *
      * @var int
@@ -33,8 +40,7 @@ abstract class Shape
      */
     public function __construct()
     {
-        $heights = [5, 7, 11, 15];
-        $this->height = $heights[array_rand($heights)];
+        $this->height = $this->availableHeights[array_rand($this->availableHeights)];
         $this->rowsCharacters = new Collection();
     }
 
@@ -47,7 +53,7 @@ abstract class Shape
      */
     public function setHeight(?int $height): Shape
     {
-        if (!empty($height)) {
+        if (!empty($height) && in_array($height, $this->availableHeights)) {
             $this->height = $height;
         }
         return $this;

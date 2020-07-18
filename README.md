@@ -118,11 +118,11 @@ At this moment we have `HtmlRowsRenderer` and `ConsoleRowsRenderer` as concrete 
 ### Conclution  
 We have the `Shape` and the `ShapeGenerator`. Both of them are abstracts and have some `concreate` classes. Let's draw the class diagram.
   
-![Fox](public/images/UML Class.svg)
+![Fox](public/images/UML Class.png)
 
 Ok as we can see, both the `Shape` and `ShapeGenerator` as abstract classes have two concrete classes and the `ShapeGenerator` has a `Shape` object. Super! It is a `Bridge Design Pattern`. It reduces the number of classes that we might have by bypassing the `Cartesian product`. Learn more about it [here](https://en.wikipedia.org/wiki/Cartesian_product).
 
 As a final step, now we have the generated rows, we will send rows to `RowRenderer` based on the environment, and it will convert the rows to a printable format. We can send the rows to `HtmlRowsRenderer` to render as an `HTML` structure or inject it to `ConsoleRowsRenderer` to render it as console style. You can define your own `RowsRenderer` too.
 
 ## UML diagram
-![Fox](public/images/Full UML Class.svg)
+![Fox](public/images/Full UML Class.png)

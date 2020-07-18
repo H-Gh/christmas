@@ -35,7 +35,7 @@ class ShapeGenerator extends Console
             $shapeGenerator = new AlignCenterRowGenerator($shape);
             $generatedShape = $shapeGenerator->getRows();
             $renderer = new ConsoleRowsRenderer();
-            $renderer->render($generatedShape);
+            echo $renderer->render($generatedShape);
         } catch (Throwable $throwable) {
             echo $throwable->getMessage();
         }

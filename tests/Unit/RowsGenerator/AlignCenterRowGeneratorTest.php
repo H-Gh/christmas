@@ -2,7 +2,7 @@
 
 namespace Unit\RowsGenerator;
 
-use App\Library\RowGenerator\AlignCenterRowGenerator;
+use App\Library\RowsGenerator\AlignCenterRowsGenerator;
 use App\Library\Shapes\Star;
 use PHPUnit\Framework\TestCase;
 
@@ -28,7 +28,7 @@ class AlignCenterRowGeneratorTest extends TestCase
     {
         $star = new Star();
         $star->setHeight(5);
-        $rowGenerator = new AlignCenterRowGenerator($star);
+        $rowGenerator = new AlignCenterRowsGenerator($star);
         $rows = $rowGenerator->getRows();
         $this->assertEquals([" ", " ", " ", "+", " ", " ", " "], $rows->get(0));
     }
@@ -40,7 +40,7 @@ class AlignCenterRowGeneratorTest extends TestCase
     {
         $star = new Star();
         $star->setHeight(5);
-        $rowGenerator = new AlignCenterRowGenerator($star);
+        $rowGenerator = new AlignCenterRowsGenerator($star);
         $rows = $rowGenerator->getRows();
         $this->assertEquals(["+", "X", "X", "X", "X", "X", "+"], $rows->get(2));
     }

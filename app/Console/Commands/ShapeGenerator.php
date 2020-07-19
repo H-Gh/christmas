@@ -2,8 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Library\Facades\RowRendererFacade;
 use App\Library\RowsGenerator\AlignCenterRowsGenerator;
 use App\Library\RowsRenderers\ConsoleRowsRenderer;
+use App\Library\Shapes\Shape;
 use App\Library\Shapes\ShapeFactory;
 use Fox\Console\Console;
 use Throwable;
@@ -19,8 +21,6 @@ class ShapeGenerator extends Console
 {
     public const SIGNATURE = "shape:generate {shapeName} {?height}";
 
-    private $availableHeights = [5, 7, 11, 15];
-
     /**
      * Render the shape
      *
@@ -30,12 +30,9 @@ class ShapeGenerator extends Console
     {
         try {
             $shape = ShapeFactory::create($this->argument("shapeName"));
-            $height = $this->getHeight();
-            $shape->setHeight($height);
-            $shapeGenerator = new AlignCenterRowsGenerator($shape);
-            $generatedShape = $shapeGenerator->getRows();
-            $renderer = new ConsoleRowsRenderer();
-            echo $renderer->render($generatedShape);
+            $shape->setHeight($this->getHeight());
+            $rowRendererFacade = new RowRendererFacade(new AlignCenterRowsGenerator($shape), new ConsoleRowsRenderer());
+            echo $rowRendererFacade->render();
         } catch (Throwable $throwable) {
             echo $throwable->getMessage();
         }
@@ -50,8 +47,8 @@ class ShapeGenerator extends Console
     private function getHeight(): ?int
     {
         $height = (int)$this->argument("height");
-        if (!empty($height) && !in_array((int)$height, $this->availableHeights)) {
-            echo "The height must be in " . implode(",", $this->availableHeights) . PHP_EOL;
+        if (!empty($height) && !in_array((int)$height, Shape::$availableHeights)) {
+            echo "The height must be in " . implode(",", Shape::$availableHeights) . PHP_EOL;
             echo "The generator select a random height" . PHP_EOL;
             return null;
         } else {

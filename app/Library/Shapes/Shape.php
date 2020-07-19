@@ -19,7 +19,7 @@ abstract class Shape
      *
      * @var array
      */
-    protected $availableHeights = [5, 7, 11, 15];
+    public static $availableHeights = [5, 7, 11, 15];
 
     /**
      * The height of the shape
@@ -40,7 +40,7 @@ abstract class Shape
      */
     public function __construct()
     {
-        $this->height = $this->availableHeights[array_rand($this->availableHeights)];
+        $this->height = self::$availableHeights[array_rand(self::$availableHeights)];
         $this->rowsCharacters = new Collection();
     }
 
@@ -53,7 +53,7 @@ abstract class Shape
      */
     public function setHeight(?int $height): Shape
     {
-        if (!empty($height) && in_array($height, $this->availableHeights)) {
+        if (!empty($height) && in_array($height, self::$availableHeights)) {
             $this->height = $height;
         }
         return $this;
